@@ -6,6 +6,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 from copy import deepcopy
+from scipy.sparse.csgraph import connected_components
 
 
 def find_n_hop_neighbour(graph: dgl.DGLGraph, node_idx: int, n_hop: int, undirected=True,
@@ -60,25 +61,6 @@ def get_allowed_nodes_k_hop(graph: dgl.DGLGraph, previous_edits, k_hop: int = 1)
     for node in previous_edits:
         allowed_nodes = torch.cat((allowed_nodes, find_n_hop_neighbour(graph, node, k_hop, exclude_self=False)))
     return torch.unique(allowed_nodes).long()
-
-
-def get_node_probabilities(graph: dgl.DGLGraph, node_indices=None):
-    """Score the edges based on its 1/sqrt(degree), used as the probability weight for node selection in prior-enabled
-    case"""
-    degrees = graph.in_degrees(node_indices).detach().numpy()
-    inv_degree_sqrt = 1. / np.sqrt(degrees)
-    inv_degree_sqrt /= np.sum(inv_degree_sqrt)
-    return inv_degree_sqrt
-
-
-def get_node_probabilities_by_proximity(graph: dgl.DGLGraph, committed_edits=None):
-    """Score the nodes based on their proximity to already attacked nodes. Nodes closer to attacked nodes get a higher
-    chance of being selected."""
-    if committed_edits is None or len(committed_edits) == 0:
-        return None
-
-
-from scipy.sparse.csgraph import connected_components
 
 
 def number_connected_components(dglgraph):
