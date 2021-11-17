@@ -107,7 +107,6 @@ gratitudes towards the maintainers of the following repos:
 1. https://github.com/Hanjun-Dai/graph_adversarial_attack
 2. https://github.com/DSE-MSU/DeepRobust
 3. https://github.com/HongyangGao/Graph-U-Nets
-4. https://github.com/xingchenwan/nasbowl
 5. https://github.com/xingchenwan/nasbowl
 6. The Deep graph library team
 7. The grakel team (https://ysig.github.io/GraKeL/0.1a8/)
