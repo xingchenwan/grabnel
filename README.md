@@ -46,6 +46,7 @@ download the dataset and add to the appropriate directory.
 python3 train_model.py --dataset PROTEINS --model gcn --seed $YOUR_SEED 
 ```
 This by default deposits the trained victim model under ```src/output/models``` and the training log under ```src/output/training_logs```.
+
 2. Evaluate the victim model on a separate test set. Run
 ```commandline
 python3 evaluate_model.py --dataset PROTEINS --seed $YOUR_SEED  --model gcn
