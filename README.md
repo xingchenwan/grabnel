@@ -3,7 +3,7 @@
 ![overall-pipeline](figs/overall_grabnel.png)
 
 This repository contains the official implementation of GRABNEL, a Bayesian optimisation-based adversarial
-attack agent to conduct on graph classification models. GRABNEL currently supports various topological
+agent to conduct adversarial attacks on graph classification models. GRABNEL currently supports various topological
 attacks, such as via edge flipping (incl. both addition or deletion), node injection and edge swapping. We also include
 implementations of a number of baseline methods including random search, genetic algorithm [1] and a gradient-based white-box
 attacker (available on some victim model choices). We also implement a number of victim models, namely:
@@ -13,7 +13,7 @@ attacker (available on some victim model choices). We also implement a number of
 - Graph U-Net [5]
 - S2V (only for the ER Graph task in [1])
 
-For details please take a look at our [abstract](https://arxiv.org/abs/2111.02842) / [pdf](https://arxiv.org/pdf/2111.02842).
+For details please take a look at our paper: [abstract](https://arxiv.org/abs/2111.02842) / [pdf](https://arxiv.org/pdf/2111.02842).
 
 The code repository also contains instructions for the TU datasets [6] in the DGL framework, as well as the MNIST-75sp
 dataset in [4]. For the Twitter dataset we used for node injection tasks, we are not authorised to redistribute the dataset and you
@@ -102,7 +102,7 @@ cd scripts && python3 run_bo_image_classification.py --dataset mnist
 
 ## Acknowledgements
 
-The repository builds, directly or indirectly, on multiple open-sourced code based available online. The authors would like to express their
+The repository builds, directly or indirectly, on multiple open-sourced code bases available online. The authors would like to express their
 gratitudes towards the maintainers of the following repos:
 
 1. https://github.com/Hanjun-Dai/graph_adversarial_attack
