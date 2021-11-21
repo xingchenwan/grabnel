@@ -97,7 +97,7 @@ def random_sample_flip(graph: dgl.DGLGraph, budget: int,
 
             if n_hop is None:
                 u = np.random.choice(allowed_nodes, replace=False, )
-                v = np.random.choice(all_nodes, replace=False,)
+                v = np.random.choice(allowed_nodes, replace=False,)
             else:
                 u = np.random.choice(allowed_nodes, replace=False,)
                 # for v can only be within the n-hop neighbours of u
@@ -106,7 +106,9 @@ def random_sample_flip(graph: dgl.DGLGraph, budget: int,
                     patience -= 1
                     continue
                 v = np.random.choice(v_candidates)
-
+            if u == v:
+                patience -= 1
+                continue
             if prohibited_nodes is not None:
                 if u in prohibited_nodes or v in prohibited_nodes:
                     patience -= 1
